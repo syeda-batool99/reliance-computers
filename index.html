@@ -16,6 +16,11 @@
         .navbar {
             background-color: black;
             color: white;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -47,12 +52,14 @@
         .nav-links a {
             color: white;
             text-decoration: none;
+            font-size: x-large;
         }
 
         #home {
             position: relative;
             background-image: url('./bg_image.jpg');
             background-size: cover;
+            /* display: flex; */
             background-position: center;
             height: 100vh;
         }
@@ -80,7 +87,15 @@
             padding: 20px;
             z-index: 1;
             position: relative;
+            
         }
+        @keyframes floatIn {
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
 
         #home-content h2 {
             /* background-color: rgba(0, 0, 0, 0.7); */
@@ -102,6 +117,9 @@
             /* Adjust margin as needed */
             font-size: 26px;
             width: fit-content;
+            opacity: 0;
+            transform: translateX(-50px);
+            animation: floatIn 2s ease-in-out forwards;
         }
 
         #about {
@@ -308,13 +326,32 @@
             vertical-align: middle;
             margin-right: 13px;
         }
+
+        .icon-social{
+          width: 3.5%;
+            height: 3.5%;
+            vertical-align: middle;
+            margin-right: 7px;   
+        }
+        .link-tag{
+            color: white;
+        }
+        .map-container {
+            width: 100%;
+            height: 100%; /* Adjust the height as needed */
+        }
+        .logo{
+            width: 30%;
+            height: 100%;
+            border-radius: 100%;
+        }
     </style>
 </head>
 
 <body>
     <nav class="navbar">
         <div class="logo">
-            <a href="#">Logo</a>
+            <a href="#"><img src="./logo.jpeg" class="logo"></a>
         </div>
         <ul class="nav-links">
             <li><a href="#home">Home</a></li>
@@ -422,7 +459,7 @@
             <div class="container">
                 <div class="background-div">
                     <div class="overlay">
-                        <form method="post">
+                        <!-- <form method="post">
                             <label for="name">Name:</label>
                             <input type="text" name="name" id="name" required><br>
 
@@ -433,16 +470,28 @@
                             <textarea name="message" id="message" required></textarea><br>
 
                             <input type="submit" value="Submit">
-                        </form>
+                        </form> -->
+                        <div class="map-container">
+                            <iframe
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3031.3996087187215!2d-74.527916525054!3d40.554851847222984!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c3bfbe1dc9bf77%3A0x10b62b4cfbd682d6!2sReliance%20Computers%20Inc.!5e0!3m2!1sen!2s!4v1692777689271!5m2!1sen!2s"
+                                width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
+                                referrerpolicy="no-referrer-when-downgrade"></iframe>
+                            <!-- <iframe
+                                src="https://www.google.com/maps/place/Reliance+Computers+Inc./@40.5548518,-74.529955,17z/data=!3m1!4b1!4m6!3m5!1s0x89c3bfbe1dc9bf77:0x10b62b4cfbd682d6!8m2!3d40.5548478!4d-74.5253416!16s%2Fg%2F11v640t3cv?entry=ttu"
+                                width="100%" height="100%" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false"
+                                tabindex="0"></iframe> -->
+                        </div>
                     </div>
                 </div>
                 <div class="content-div">
                     <h1>Contact US</h1>
-                    <p><img src="./email.png" class="icon">service@rclplus.com
-                    </p>
-                    <p><img src="./phone.png" class="icon">732-748-9696</p>
-                    <p><img src="./address.png" class="icon-address">69 Main Street, South Bound Brook, NJ 08880</p>
-                    <p>This is the content of the second div.</p>
+                   <p> <a class="link-tag" href="mailto:service@rclplus.com"><img src="./email.png" class="icon">service@rclplus.com
+                    </a></p>
+                   <p> <a class="link-tag" href="tel:+17327489696"><img src="./phone.png" class="icon">732-748-9696</a></p>
+                    <p><link><img src="./address.png" class="icon-address">69 Main Street, South Bound Brook, NJ 08880</p>
+                    <a href="https://www.facebook.com/p/Reliance-Computers-Inc-100054676603294/" target="_blank"><img src="./facebook.png" class="icon-social"></a>
+                    <a href="https://www.linkedin.com/company/reliance-computers-inc/about/" target="_blank"><img src="./linkedin.png" class="icon-social"></a>
+
 
                 </div>
             </div>
