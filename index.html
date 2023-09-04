@@ -2,364 +2,577 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     <title>Reliance Computers INC</title>
     <style>
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: 'Roboto', sans-serif;
-        }
-
-        .navbar {
-            background-color: black;
-            color: white;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            z-index: 1000;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 10px;
-            height: 3rem;
-        }
-
-        .logo a {
-            color: white;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 1.5rem;
-        }
-
-        .nav-links {
-            list-style: none;
-            display: flex;
-            margin: 0;
-            padding: 0;
-            margin-right: 10rem;
-            /* Pushes the links slightly to the left */
-        }
-
-        .nav-links li {
-            margin: 0 20px;
-            /* Adjust as needed */
-        }
-
-        .nav-links a {
-            color: white;
-            text-decoration: none;
-            font-size: x-large;
-        }
-
-        #home {
-            position: relative;
-            background-image: url('./bg_image.jpg');
-            background-size: cover;
-            /* display: flex; */
-            background-position: center;
-            height: 100vh;
-        }
-
-        #home::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.2);
-            /* Add opacity to the background */
-        }
-
-
-        #home-content {
-            display: flex;
-            flex-direction: column;
-            /* align-items: center; */
-            justify-content: flex-start;
-            height: 100%;
-            color: white;
-            /* text-align: center; */
-            padding: 20px;
-            z-index: 1;
-            position: relative;
-            
-        }
-        @keyframes floatIn {
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-
-
-        #home-content h2 {
-            /* background-color: rgba(0, 0, 0, 0.7); */
-            padding: 10px 20px;
-            border-radius: 5px;
-            font-size: 85px;
-            color: white;
-            font-weight: 900;
-            text-align: center;
-            /* margin-top: -200px; */
-        }
-
-        #home-content p {
-            background-color: rgba(0, 0, 0, 0.7);
-            /* Add opacity to the background */
-            padding: 20px 20px 20px 100px;
-            /* border-radius: 5px; */
-            margin-left: -30px;
-            /* Adjust margin as needed */
-            font-size: 26px;
-            width: fit-content;
-            opacity: 0;
-            transform: translateX(-50px);
-            animation: floatIn 2s ease-in-out forwards;
-        }
-
-        #about {
-            background-color: #f5f5f5;
-            padding: 30px 20px;
-            position: relative;
-        }
-
-        .about-row {
-            display: flex;
-            justify-content: space-between;
-            /* margin-bottom: 20px; */
-            justify-content: center;
-        }
-
-        .about-column {
-            flex-basis: 48%;
-            /* Two columns with some spacing */
-        }
-
-        #services {
-            padding: 0 2rem;
-        }
-
-        .about-services {
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-start;
-            align-items: center;
-            width: 200px;
-            height: 15rem;
-        }
-
-        .about-row h1 {
-            font-size: 40px;
-            /* text-align: center; */
-            margin: 0
-        }
-
-        .about-row>p {
-            font-size: 20px;
-            text-align: center;
-            width: 80%;
-        }
-
-        .text-in-about {
-            font-size: 25px;
-            text-align: right;
-            /* width: 80%; */
-            margin-left: 2.5rem;
-        }
-
-        .about-column>h1 {
-            font-size: 25px;
-            text-align: center;
-            /* width: 80%; */
-            /* margin-left: 2.5rem; */
-        }
-
-        .services-h1 {
-            font-size: 25px;
-            text-align: center;
-            padding-top: 1rem;
-        }
-
-        .services-main {
-            padding-top: 2rem;
-        }
-
-        .text-in-services {
-            font-size: 20px;
-            text-align: center;
-            margin: auto 0;
-            padding: 0 5px;
-            width: 15rem;
-
-        }
-
-        .about-column:last-child {
-            flex-basis: calc(50% - 10px);
-            /* Adjust spacing for last column */
-        }
-
-        .slider {
-            display: flex;
-            overflow: hidden;
-            width: 100%;
-            height: 250px;
-            border-radius: 10px;
-            /* margin: 1.5rem; */
-            /* Adjust the height as needed */
-        }
-
-        .slides {
-            display: flex;
-            animation: slide 10s infinite;
-            /* Change slide every 10 seconds */
-        }
-
-        .slide {
-            flex: 0 0 100%;
-            transition: transform 1s;
-        }
-
-        .slide img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-        }
-
-        @keyframes slide {
-
-            0%,
-            100% {
-                transform: translateX(0);
-            }
-
-            16.666%,
-            33.333% {
-                transform: translateX(-100%);
-            }
-
-            50%,
-            66.666% {
-                transform: translateX(-200%);
-            }
-
-        }
-
-        footer {
-            background-color: #000000;
-            padding: 0.5rem;
-            text-align: center;
-            color: white;
-            justify-items: center;
-        }
-
-        .operation-hours {
-            background-color: #000000;
-
-        }
-
-        .contact-us {
-            background-color: #000000;
-            color: white;
-            padding: 2rem 0
-        }
-
-        .timings1 {
-            font-size: x-large;
-            text-align: center;
-            padding-left: 5rem;
-        }
-
-        .timings2 {
-            font-size: x-large;
-            text-align: left;
-            padding-left: 5rem;
-        }
-
-        .timings3 {
-            font-size: x-large;
-            text-align: center;
-        }
-
-        .container {
-            position: relative;
-        }
-
-        .background-div {
-            background-image: url('./laptop.avif');
-            background-size: cover;
-            height: 300px;
-            width: 100%;
-        }
-
-        .overlay {
-            position: absolute;
-            top: 0;
-            right: 0;
-            bottom: 0;
-            width: 30%;
-            margin: 2rem 3rem 2rem 10rem;
-            background-color: white;
-        }
-
-        .content-div {
-            background-color: #222222;
-            padding: 2rem;
-            padding-left: 15rem;
-            color: white;
-        }
-
-        .icon {
-            width: 2.8%;
-            height: 2.8%;
-            vertical-align: middle;
-            margin-right: 7px;
-        }
-
-        .icon-address {
-            width: 2.3%;
-            height: 2.3%;
-            vertical-align: middle;
-            margin-right: 13px;
-        }
-
-        .icon-social{
-          width: 3.5%;
-            height: 3.5%;
-            vertical-align: middle;
-            margin-right: 7px;   
-        }
-        .link-tag{
-            color: white;
-        }
-        .map-container {
-            width: 100%;
-            height: 100%; /* Adjust the height as needed */
-        }
-        .logo{
-            width: 30%;
-            height: 100%;
-            border-radius: 100%;
-        }
+    /* UTILITIES */
+    * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    }
+    
+    body {
+    font-family: 'Roboto', 'sans-serif';
+    }
+    
+    a {
+    text-decoration: none;
+    }
+    
+    li {
+    list-style: none;
+    }
+    /* NAVBAR STYLING STARTS */
+    .navbar {
+    display: flex;
+    position: fixed;
+    z-index: 10000;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px;
+    background-color:black;
+    color: #fff;
+    }
+    
+    .nav-links a {
+    color: #fff;
+    }
+    
+    /* LOGO */
+    .logo img {
+    max-width: 70px;
+    }
+    
+    /* NAVBAR MENU */
+    .menu {
+    display: flex;
+    gap: 1em;
+    font-size: 18px;
+    z-index: 1000;
+    }
+    
+    .menu li:hover {
+    background-color:black;
+    border-radius: 5px;
+    transition: 0.3s ease;
+    }
+    
+    .menu li {
+    padding: 5px 14px;
+    }
+    
+    
+    /* RESPONSIVE NAVBAR MENU STARTS */
+    
+    /* CHECKBOX HACK */
+    
+    input[type=checkbox] {
+    display: none;
+    }
+    
+    /* HAMBURGER MENU */
+    .hamburger {
+    display: none;
+    font-size: 24px;
+    user-select: none;
+    }
+    /* Home */
+    
+    #home {
+    position: relative;
+    background-image: url('./bg_image.jpg');
+    background-size: cover;
+    padding-top: 16vw;
+    z-index: 1;
+    /* display: flex; */
+    background-position: center;
+    height: 100vh;
+    }
+    
+    #home::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.2);
+    /* Add opacity to the background */
+    }
+    
+    
+    
+    #home-content {
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    justify-content: flex-start;
+    height: 100%;
+    color: white;
+    /* text-align: center; */
+    padding: 20px;
+    position: relative;
+    
+    }
+    @keyframes floatIn {
+    to {
+    opacity: 1;
+    transform: translateX(0);
+    }
+    }
+    
+    
+    #home-content h2 {
+    /* background-color: rgba(0, 0, 0, 0.7); */
+    margin-top: 10px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 85px;
+    color: white;
+    font-weight: 900;
+    text-align: center;
+    /* margin-top: -200px; */
+    }
+    
+    #home-content p {
+    background-color: rgba(0, 0, 0, 0.7);
+    /* Add opacity to the background */
+    padding: 20px 20px 20px 100px;
+    /* border-radius: 5px; */
+    margin-left: -30px;
+    /* Adjust margin as needed */
+    font-size: 26px;
+    width: fit-content;
+    opacity: 0;
+    transform: translateX(-50px);
+    animation: floatIn 2s ease-in-out forwards;
+    }
+    
+    /* About */
+    
+    
+    
+    #about {
+    background-color: #f5f5f5;
+    padding: 30px 20px;
+    position: relative;
+    }
+    
+    .about-row {
+    display: flex;
+    /* margin-bottom: 20px; */
+    justify-content: center;
+    }
+    
+    .about-column {
+    flex-basis: 48%;
+    /* Two columns with some spacing */
+    }
+    
+    #services {
+    padding: 30px 20px;
+    }
+    
+    .about-services {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 200px;
+    height: 15rem;
+    }
+    
+    .about-row h1 {
+    font-size: 40px;
+    /* text-align: center; */
+    margin: 0
+    }
+    
+    .about-row>p {
+    font-size: 20px;
+    text-align: center;
+    width: 80%;
+    }
+    
+    .about-text {
+    font-size: 25px;
+    text-align: right;
+    /* width: 80%; */
+    margin-left: 2.5rem;
+    }
+    
+    .about-column>h1 {
+    font-size: 25px;
+    text-align: center;
+    /* width: 80%; */
+    /* margin-left: 2.5rem; */
+    }
+    
+    .services-h1 {
+    font-size: 25px;
+    text-align: center;
+    padding-top: 1rem;
+    }
+    
+    .services-main {
+    padding-top: 2rem;
+    }
+    
+    .text-in-services {
+    font-size: 20px;
+    text-align: center;
+    margin: auto 0;
+    padding: 0 5px;
+    width: 15rem;
+    
+    }
+    
+    .about-column:last-child {
+    flex-basis: calc(50% - 10px);
+    /* Adjust spacing for last column */
+    }
+    
+    .slider {
+    display: flex;
+    overflow: hidden;
+    width: 100%;
+    height: 250px;
+    border-radius: 10px;
+    /* margin: 1.5rem; */
+    /* Adjust the height as needed */
+    }
+    
+    .slides {
+    display: flex;
+    animation: slide 10s infinite;
+    /* Change slide every 10 seconds */
+    }
+    
+    .slide {
+    flex: 0 0 100%;
+    transition: transform 1s;
+    }
+    
+    .slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    }
+    
+    @keyframes slide {
+    
+    0%,
+    100% {
+    transform: translateX(0);
+    }
+    
+    16.666%,
+    33.333% {
+    transform: translateX(-100%);
+    }
+    
+    50%,
+    66.666% {
+    transform: translateX(-200%);
+    }
+    
+    }
+    
+    footer {
+    background-color: #000000;
+    padding: 0.5rem;
+    text-align: center;
+    color: white;
+    justify-items: center;
+    }
+    
+    .operation-hours {
+    background-color: #000000;
+    
+    }
+    
+    .contact-us {
+    background-color: #000000;
+    color: white;
+    padding: 2vw 0;
+    }
+    
+    .timings1 {
+    font-size: x-large;
+    text-align: center;
+    padding-left: 5rem;
+    }
+    
+    .timings2 {
+    font-size: x-large;
+    text-align: left;
+    padding-left: 5rem;
+    }
+    
+    .timings3 {
+    font-size: x-large;
+    text-align: center;
+    }
+    
+    .container {
+    position: relative;
+    }
+    
+    .background-div {
+    background-image: url('./laptop.avif');
+    background-size: cover;
+    height: 300px;
+    width: 100%;
+    }
+    
+    .overlay {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 30%;
+    margin: 2rem 3rem 2rem 10rem;
+    background-color: white;
+    }
+    
+    .content-div {
+    background-color: #222222;
+    padding: 2rem;
+    padding-left: 15rem;
+    color: white;
+    }
+    
+    .icon {
+    width: 2.8%;
+    height: 2.8%;
+    vertical-align: middle;
+    margin-right: 7px;
+    }
+    
+    .icon-address {
+    width: 2.3%;
+    height: 2.3%;
+    vertical-align: middle;
+    margin-right: 13px;
+    }
+    
+    .icon-social{
+    width: 3.5%;
+    height: 3.5%;
+    vertical-align: middle;
+    margin-right: 7px;
+    }
+    .link-tag{
+    color: white;
+    }
+    .map-container {
+    width: 100%;
+    height: 100%; /* Adjust the height as needed */
+    }
+    .logo{
+    width: 30%;
+    height: 100%;
+    border-radius: 100%;
+    }
+    
+    
+    
+    
+    
+    @media (max-width: 746px) {
+    .menu {
+    display:none;
+    position: absolute;
+    background-color:black;
+    right: 0;
+    left: 0;
+    text-align: center;
+    padding: 16px 0;
+    }
+    
+    .menu li:hover {
+    display: inline-block;
+    background-color:#4c9e9e;
+    transition: 0.3s ease;
+    }
+    
+    .menu li + li {
+    margin-top: 12px;
+    }
+    
+    input[type=checkbox]:checked ~ .menu {
+    display: block;
+    }
+    
+    .hamburger {
+    display: block;
+    }
+    
+    #home-content h2 {
+    /* background-color: rgba(0, 0, 0, 0.7); */
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 15vw;
+    color: white;
+    font-weight: 900;
+    text-align: center;
+    /* margin-top: -200px; */
+    }
+    
+    #home-content p {
+    background-color: rgba(0, 0, 0, 0.7);
+    /* Add opacity to the background */
+    padding: 20px 20px 20px 100px;
+    /* border-radius: 5px; */
+    margin-left: -30px;
+    /* Adjust margin as needed */
+    font-size: 3.5vw;
+    width: fit-content;
+    opacity: 0;
+    transform: translateX(-50px);
+    animation: floatIn 2s ease-in-out forwards;
+    }
+    
+    #about {
+    background-color: #f5f5f5;
+    padding: 30px 20px;
+    position: relative;
+    padding-top: 2vw;
+    padding-bottom: 2vw;
+    }
+    
+    .about-row {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 2vw;
+    padding-bottom: 2vw;
+    }
+    
+    .about-column {
+    flex-basis: 48%;
+    padding-top: 2vw;
+    padding-bottom: 2vw;
+    /* Two columns with some spacing */
+    }
+    
+    .about-text{
+    font-size: 4vw;
+    text-align: center;
+    }
+    
+    
+    .timings1 {
+    font-size: x-large;
+    text-align: right;
+    padding: 0;
+    }
+    
+    .timings2 {
+    font-size: x-large;
+    text-align: right;
+    padding: 0;
+    }
+    
+    .timings3 {
+    font-size: x-large;
+    text-align: right;
+    padding: 0;
+    }
+    
+    .overlay {
+    position:relative;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    }
+    
+    .content-div {
+    background-color: #222222;
+    
+    padding:2rem 3rem;
+    color: white;
+    
+    }
+    
+    .icon-address {
+    width: 13%;
+    vertical-align: middle;
+    margin-right: 10px;
+    }
+    
+    .icon-social{
+    width: 13%;
+    vertical-align: middle;
+    margin-right: 10px;
+    }
+    .link-tag{
+    width: 13%;
+    vertical-align: middle;
+    margin-right: 10px;
+    color: white;
+    }
+    
+    .icon {
+    width: 13%;
+    vertical-align: middle;
+    margin-right: 10px;
+    }
+    
+    .content-links{
+    padding:12px 0;
+    font-size: 14px
+    };
+    
+    .aboutsec{
+    padding: 3px;
+    }
+    
+    .contact-heading{
+    font-size: 35px;
+    text-align: center;
+    padding-top: 1rem;
+    text-decoration: underline;
+    }
+    
+    }
     </style>
 </head>
 
 <body>
     <nav class="navbar">
-        <div class="logo">
-            <a href="#"><img src="./logo.jpeg" class="logo"></a>
-        </div>
+        <!-- LOGO -->
+        <div class="logo"><a href="#"><img src="logo.jpeg"></img></a></div>
+    
+        <!-- NAVIGATION MENU -->
         <ul class="nav-links">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">About Us</a></li>
-            <li><a href="#services">Services</a></li>
-            <li><a href="#contact">Contact</a></li>
+    
+          <!-- USING CHECKBOX HACK -->
+          <input type="checkbox" id="checkbox_toggle" />
+          <label for="checkbox_toggle" class="hamburger">&#9776;</label>
+    
+          <!-- NAVIGATION MENUS -->
+          <div class="menu">
+    
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#contact">Contact</a></li>
+          </div>
         </ul>
-    </nav>
+      </nav>
     <section id="home">
         <div id="home-content">
             <h2 class="heading">Reliance Computers INC</h2>
@@ -392,7 +605,7 @@
             </div>
             <div class="about-column">
 
-                <p class="text-in-about">Reliance Computers has 20 years of experience in providing cost effective and
+                <p class="about-text">Reliance Computers has 20 years of experience in providing cost effective and
                     reliable service to
                     medium and small sized
                     businesses, home offices and individuals of Central New Jersey and NYC for repairs of Laser
@@ -431,7 +644,6 @@
                     laser printer can provide years of good service.</p>
             </div>
         </div>
-        <hr>
     </section>
     <section id="contact">
         <div class="contact-us">
@@ -442,7 +654,7 @@
                     <hr>
                 </div>
             </div>
-            <div class="about-row">
+            <div class="about-row aboutsec">
                 <div class="about-column">
                     <p class="timings1">Monday to Friday: 9 AM to 7 PM</p>
                 </div>
@@ -483,15 +695,17 @@
                         </div>
                     </div>
                 </div>
-                <div class="content-div">
-                    <h1>Contact US</h1>
-                   <p> <a class="link-tag" href="mailto:service@rclplus.com"><img src="./email.png" class="icon">service@rclplus.com
+                <div class="content-div contact-class">
+                   <h1 class="contact-heading">Contact Us</h1>
+                   
+                   <p class="content-links"> <a class="link-tag" href="mailto:service@rclplus.com"><img src="./email.png" class="icon">service@rclplus.com
                     </a></p>
-                   <p> <a class="link-tag" href="tel:+17327489696"><img src="./phone.png" class="icon">732-748-9696</a></p>
-                    <p><link><img src="./address.png" class="icon-address">69 Main Street, South Bound Brook, NJ 08880</p>
-                    <a href="https://www.facebook.com/p/Reliance-Computers-Inc-100054676603294/" target="_blank"><img src="./facebook.png" class="icon-social"></a>
-                    <a href="https://www.linkedin.com/company/reliance-computers-inc/about/" target="_blank"><img src="./linkedin.png" class="icon-social"></a>
-
+                   <p class="content-links"><a class="link-tag" href="tel:+17327489696"><img src="./phone.png" class="icon">732-748-9696</a></p>
+                    <p class="content-links"><link><img src="./address.png" class="icon-address">69 Main Street, South Bound Brook, NJ 08880</p>
+                    <div class="contact-subdiv">
+                    <a class="content-links" href="https://www.facebook.com/p/Reliance-Computers-Inc-100054676603294/" target="_blank"><img src="./facebook.png" class="icon-social"></a>
+                    <a class="content-links" href="https://www.linkedin.com/company/reliance-computers-inc/about/" target="_blank"><img src="./linkedin.png" class="icon-social"></a>
+                    </div>
 
                 </div>
             </div>
